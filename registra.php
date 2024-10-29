@@ -9,11 +9,12 @@
     <div>
         <form action="./valida_registra.php" method="post">
             <input type="text" placeholder="cognome" name="cognome">
+            <input type="text" placeholder="nome" name="pippo">
             <input type="text" placeholder="user" name="user">
-            <input type="text" placeholder="user" name="user">
-            <input type="text" placeholder="password" name="pwd">
+            <input type="password" placeholder="password" name="pwd">
             <input type="radio" name="genere" value="d" id="donna">
             <label for="donna">donna</label>
+            <input type="radio" name="genere" value="u" id="uomo">
             <label for="uomo">uomo</label>
             <input type="date" name="data_nascita">
             <input type="checkbox" name="rosso" value="si" id="rosso">
