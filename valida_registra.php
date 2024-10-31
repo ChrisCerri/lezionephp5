@@ -8,7 +8,6 @@
     $user = $_POST['user'];
     /* $pwd = $_POST['pwd']; */
     $pwd = password_hash($_POST['pwd'], PASSWORD_BCRYPT); //nascondere la password su un database
-
     /* $genere = $_POST['genere']; */
     $genere = isset($_POST['genere']) ? $_POST['genere'] : "";
 
@@ -37,8 +36,15 @@
     //inserisco i dati nel db
     $result = $link->query($sql_insert);
 
+    //variabili di sessione
+    $_SESSION['cognome'] = $cognome;
+    $_SESSION['nome'] = $nome;
+    $_SESSION['user'] = $user;
+    
+
     if($result) {
-        echo "dati inseriti";
+        /* echo "dati inseriti"; */
+        header("Location:benvenuto.php");
     }
     else {
         echo "dati non inseriti";

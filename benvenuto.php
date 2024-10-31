@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    $cognome = $_SESSION['cognome'];
+    $nome = $_SESSION['nome'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +12,12 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>
+      Ciao <?php echo "$cognome $nome"?> sei stato registrato
+    </p>
 </body>
 </html>
+
+<?php
+    session_destroy();
+?>
