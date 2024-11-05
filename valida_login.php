@@ -17,11 +17,11 @@
     }
 
     //istruzione sql per la select
-    $sql_select = "SELECT * FROM alunni WHERE user = '$user' ";
+   /*  $sql_select = "SELECT * FROM alunni WHERE user = '$user' ";
 
     $result = $link->query($sql_select);
 
-    $row = $result->fetch_assoc(); //estrae dato da result
+    $row = $result->fetch_assoc(); */ //estrae dato da result
 
     /* foreach($row as $indice => $valore) {
         echo "<p>$indice</p>";
@@ -29,7 +29,7 @@
 
     } */
 
-    if($result->num_rows == 1) {
+    /* if($result->num_rows == 1) {
         $check_password = password_verify($pwd, $row['pwd']); //controlla se password è corrispondente
         $pwd == $row['pwd'];
         if($check_password) {
@@ -44,7 +44,19 @@
     }     
     else {
         echo "user errata";
+    } */
+
+    //all users
+    $sql_select = "SELECT * FROM alunni";
+    $result = $link->query($sql_select);
+    while($row = $result->fetch_assoc()) {
+        $dati[] = $row;
     }
+
+    $all_json = json_encode($dati, JSON_PRETTY_PRINT);
+    $file_json = "dati/file.json";
+
+    file_put_contents($file_json, $all_json);
 
 
 ?>

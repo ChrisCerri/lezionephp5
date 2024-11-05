@@ -1,6 +1,11 @@
 <?php
     session_start();
     $utente_modifica = $_SESSION['utente'];
+
+    $utente_json = json_encode($utente_modifica, JSON_PRETTY_PRINT);
+    //file_json = "dati/utente.json"
+    $file_json = "dati/utente$utente_modifica[id].json";
+    file_put_contents($file_json, $utente_json);
 ?>
 
 <!DOCTYPE html>
