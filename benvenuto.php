@@ -1,5 +1,13 @@
 <?php
     session_start();
+    if(session_id() != $_SESSION['sessioneid'] || $_SESSION['sessione'] != "ok") {
+        header("Location: registra.php");
+        exit;
+    }
+
+
+
+
     $cognome = $_SESSION['cognome'];
     $nome = $_SESSION['nome'];
 ?>

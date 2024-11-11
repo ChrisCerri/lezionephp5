@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $_SESSION['sessioneid'] = session_id();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +14,7 @@
     <form action="valida_login.php" method="post">
         <input type="text" name="user" placeholder="username">
         <input type="text" name="pwd" placeholder="password">
-        <button type="submit">accedi</button>
+        <button type="submit" name="btnlogin">accedi</button>
     </form>
 </body>
 </html>

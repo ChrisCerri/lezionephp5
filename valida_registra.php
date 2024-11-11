@@ -2,6 +2,25 @@
     // AVVIO SESSIONE
     session_start();
 
+    /* if(session_id() != $_SESSION['sessioneid']) {
+        header("Location:registra.php");
+        exit; //per essere sicuri che l'interprete non continui a leggere i dati della pagina
+    } */
+
+    /* if(isset($_POST['btnregistra'])) {
+        echo "click bottone";
+    }
+    else{
+        echo "no click";
+    } */
+
+    if(session_id() != $_SESSION['sessioneid'] || !isset($_POST['btnregistra'])) {
+        header("Location: registra.php");
+        exit;
+    }
+
+    $_SESSION['sessione'] = "ok";
+
     //inizializzo le variabili
     $cognome = $_POST['cognome'];
     $nome = $_POST['pippo'];
@@ -49,6 +68,12 @@
     else {
         echo "dati non inseriti";
     }
+
+    //proteggere dati
+    /* echo session_id(); */ //quando sessione è aperta, rimane sempre lo stesso id
+
+
+
 
     $link->close(); //l'oggetto è link e close chiude la connessione
 ?>

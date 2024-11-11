@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    //echo session_id();
+    $_SESSION['sessioneid'] = session_id(); //non confondere con id del database
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +37,9 @@
                 <option value="comune4">comune 4</option>
             </select>
 
-            <button type="submit">Registra dati</button>
+            <button type="submit" name="btnregistra">Registra dati</button>
         </form>
     </div>
 </body>
 </html>
+
