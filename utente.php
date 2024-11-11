@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if(session_id() != $_SESSION['sessioneid'] || $_SESSION['sessione'] != "ok") {
+        header("Location: login.php");
+        exit;
+    }
+
     $utente = $_SESSION['utente'];
 
 ?>

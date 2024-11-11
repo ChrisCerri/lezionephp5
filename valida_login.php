@@ -66,4 +66,5 @@
     file_put_contents($file_json, $all_json);
 
 
+    $link->close();
 ?>

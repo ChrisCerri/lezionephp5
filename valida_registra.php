@@ -49,6 +49,15 @@
         die();
     }
 
+    //controllo la user se esiste
+    $sql_select = "SELECT user FROM alunni WHERE user = '$user'";
+    $duplicato = $link->query($sql_select);
+
+    if($duplicato->num_rows > 0) {
+        echo "l'utente esiste";
+        exit; //con gli exit non si esegue il resto dei controlli
+    }
+
     $sql_insert = "INSERT INTO alunni (cognome, nome, user, pwd, genere, data_nascita, rosso, verde, giallo, comune) VALUES ('$cognome', '$nome', '$user', '$pwd', '$genere', '$data_nascita', '$rosso', '$verde', '$giallo', '$comune')"; 
     //php deve scrivere su un altro linguaggio  //contiene esattamente istruzione che deve fare
 
